@@ -15,6 +15,7 @@ import java.util.List;
 @NoArgsConstructor
 public class Product {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     @NotNull
