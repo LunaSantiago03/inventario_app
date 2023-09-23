@@ -51,4 +51,9 @@ public class ProductController {
         return productService.deleteProductById(id);
     }
 
+    @GetMapping("/getDisponibles")
+    public List<Product> getProductoDisponible(){
+        return this.productService.getProductosDisponibles();
+    }
+
 }

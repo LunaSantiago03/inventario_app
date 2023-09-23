@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -44,6 +46,8 @@ public class ProductService {
             p.setId(product.getId());
             p.setCategories(product.getCategories());
             p.setNombre(product.getNombre());
+            p.setPrecio(product.getPrecio());
+            p.setDisponible(product.getDisponible());
             productRepository.save(p);
             return ResponseEntity.status(OK).build();
         } catch (Exception e){
@@ -58,6 +62,17 @@ public class ProductService {
         } catch (Exception e){
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
         }
+    }
+
+    public List<Product> getProductosDisponibles(){
+        List<Product> p = productRepository.findAll();
+        List<Product> aux = new ArrayList<Product>();
+        for(Product pa:p){
+            if(pa.getDisponible()){
+                aux.add(pa);
+            }
+        }
+        return aux;
     }
 
 }
