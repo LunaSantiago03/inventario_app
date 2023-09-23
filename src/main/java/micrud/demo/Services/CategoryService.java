@@ -1,5 +1,6 @@
 package micrud.demo.Services;
 import micrud.demo.Models.Category;
+import micrud.demo.Models.Product;
 import micrud.demo.Models.ProductDTO;
 import micrud.demo.Repositories.ICategoryRepository;
 import micrud.demo.Repositories.IProductRepository;
@@ -83,12 +84,4 @@ public class CategoryService {
         }
     }
 
-    /*public List<ProductDTO> getCategoriesProducts(Integer categoryId){
-        List<ProductDTO> productList = new ArrayList<>();
-        List<Integer> cp = categoryRepository.getCategoryProducts(categoryId);
-        for(int i = 0; i < cp.size(); i++){
-            productList.add(mm.map(productRepository.findById(cp.get(i)).get(),ProductDTO.class));
-        }
-        return productList;
-    } */
 }
