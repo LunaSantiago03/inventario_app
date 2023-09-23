@@ -15,4 +15,5 @@ public class ProductDTO {
     private String nombre;
     private Integer cantidad;
     private Double precio;
+    private boolean disponible;
 }
