@@ -25,13 +25,17 @@ public class CategoryController {
 
     @PostMapping("")
     public ResponseEntity saveCategory(@RequestBody Category c){
-        cs.saveCategory(c);
-        return ResponseEntity.status(CREATED).build();
+        return this.cs.saveCategory(c);
     }
+    /*@PostMapping("")
+    public ResponseEntity saveCategory(@RequestBody Category c){
+        this.cs.saveCategory(c);
+        return ResponseEntity.status(CREATED).build();
+    }*/
 
     @GetMapping("/{id}")
     public ResponseEntity<Category> getCategoriaById(@PathVariable Integer id) {
-        Category categoria = cs.getCategoryById(id);
+        Category categoria = this.cs.getCategoryById(id);
         if (categoria != null) {
             return ResponseEntity.ok(categoria);
         } else {
@@ -41,11 +45,11 @@ public class CategoryController {
 
     @PutMapping(path = "/{id}/update")
     public ResponseEntity updateCategory(@RequestBody Category c,@PathVariable Integer id){
-        return cs.updateById(c,id);
+        return this.cs.updateById(c,id);
     }
     @DeleteMapping("/{id}")
     public ResponseEntity deleteCategoryById(@PathVariable Integer id) {
-        return cs.deleteCategoryById(id);
+        return this.cs.deleteCategoryById(id);
     }
 
     @GetMapping("/{id}/getCategoriesProducts")

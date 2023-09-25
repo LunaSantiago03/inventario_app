@@ -27,13 +27,18 @@ public class ProductController {
 
     @PostMapping("")
     public ResponseEntity saveProduct(@RequestBody Product p){
+        return this.productService.saveProduct(p);
+    }
+
+    /*@PostMapping("")
+    public ResponseEntity saveProduct(@RequestBody Product p){
         this.productService.saveProduct(p);
         return ResponseEntity.status(CREATED).build();
-    }
+    }*/
 
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Integer id) {
-        Product p =productService.getProductById(id);
+        Product p = this.productService.getProductById(id);
         if (p != null) {
             return ResponseEntity.ok(p);
         } else {
@@ -48,7 +53,7 @@ public class ProductController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity deleteProduct(@PathVariable Integer id) {
-        return productService.deleteProductById(id);
+        return this.productService.deleteProductById(id);
     }
 
     @GetMapping("/getDisponibles")
