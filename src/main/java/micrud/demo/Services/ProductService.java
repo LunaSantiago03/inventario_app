@@ -4,6 +4,7 @@ package micrud.demo.Services;
 import micrud.demo.Models.Category;
 import micrud.demo.Models.Product;
 import micrud.demo.Repositories.IProductRepository;
+import micrud.demo.enums.Valoracion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,6 +49,7 @@ public class ProductService {
             p.setNombre(product.getNombre());
             p.setPrecio(product.getPrecio());
             p.setDisponible(product.getDisponible());
+            p.setValoracion(product.getValoracion());
             productRepository.save(p);
             return ResponseEntity.status(OK).build();
         } catch (Exception e){
@@ -73,6 +75,21 @@ public class ProductService {
             }
         }
         return aux;
+    }
+
+    public List<Product> getPorValoracion(String valoracion){
+        try{
+            List<Product> products = productRepository.findAll();
+            List<Product> aux = new ArrayList<Product>();
+            for(Product pa:products ){
+                if(pa.getValoracion().name().equalsIgnoreCase(valoracion)){
+                    aux.add(pa);
+                }
+            }
+            return aux;
+        }catch (Exception e){
+            throw new RuntimeException("Error al filtrar productos por valoración: "+valoracion);
+        }
     }
 
 }

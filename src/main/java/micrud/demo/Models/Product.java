@@ -6,6 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import micrud.demo.enums.Valoracion;
 
 import java.util.List;
 
@@ -33,6 +34,10 @@ public class Product {
     @NotNull
     @Column(nullable = false)
     private Byte disponible;
+
+    @NotNull
+    @Column(nullable = false)
+    private Valoracion valoracion;
 
     @ManyToMany
     @JoinColumn(name = "category_id")
