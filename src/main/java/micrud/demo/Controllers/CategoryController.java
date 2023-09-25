@@ -27,11 +27,6 @@ public class CategoryController {
     public ResponseEntity saveCategory(@RequestBody Category c){
         return this.cs.saveCategory(c);
     }
-    /*@PostMapping("")
-    public ResponseEntity saveCategory(@RequestBody Category c){
-        this.cs.saveCategory(c);
-        return ResponseEntity.status(CREATED).build();
-    }*/
 
     @GetMapping("/{id}")
     public ResponseEntity<Category> getCategoriaById(@PathVariable Integer id) {
@@ -54,6 +49,6 @@ public class CategoryController {
 
     @GetMapping("/{id}/getCategoriesProducts")
     public List<ProductDTO> getCategoriesProducts(@PathVariable Integer id){
-        return cs.getCategoriesProducts(id);
+        return this.cs.getCategoriesProducts(id);
     }
 }

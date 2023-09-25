@@ -30,12 +30,6 @@ public class ProductController {
         return this.productService.saveProduct(p);
     }
 
-    /*@PostMapping("")
-    public ResponseEntity saveProduct(@RequestBody Product p){
-        this.productService.saveProduct(p);
-        return ResponseEntity.status(CREATED).build();
-    }*/
-
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Integer id) {
         Product p = this.productService.getProductById(id);
