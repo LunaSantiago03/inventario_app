@@ -58,7 +58,6 @@ public class ProductController {
     @GetMapping("/valoracion/{valoracion}")
     public ResponseEntity<List<Product>> getProductsByValoracion(@PathVariable String valoracion) {
         List<Product> products = productService.getPorValoracion(valoracion);
-
         if (products != null && !products.isEmpty()) {
             return ResponseEntity.ok(products);
         } else {

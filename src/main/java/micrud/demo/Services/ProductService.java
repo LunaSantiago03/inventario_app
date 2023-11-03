@@ -79,10 +79,10 @@ public class ProductService {
 
     public List<Product> getPorValoracion(String valoracion){
         try{
-            List<Product> products = productRepository.findAll();
+            List<Product> products = this.getProducts();
             List<Product> aux = new ArrayList<Product>();
             for(Product pa:products ){
-                if(pa.getValoracion().name().equalsIgnoreCase(valoracion)){
+                if(pa.getValoracion().toString().equalsIgnoreCase(valoracion)){
                     aux.add(pa);
                 }
             }
