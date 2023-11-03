@@ -23,6 +23,14 @@ public class Category {
     @Column(nullable = false)
     private String nombre;
 
+    @NotNull
+    @Column(nullable = false)
+    private String descripcion;
+
+    @NotNull
+    @Column(nullable = false)
+    private Boolean disponible;
+
     @ManyToMany(mappedBy = "categories", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     private List<Product> products;

@@ -33,7 +33,7 @@ public class Product {
 
     @NotNull
     @Column(nullable = false)
-    private Byte disponible;
+    private Boolean disponible;
 
     @NotNull
     @Column(nullable = false)

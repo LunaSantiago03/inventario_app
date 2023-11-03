@@ -53,6 +53,8 @@ public class CategoryService {
             cc.setId(c.getId());
             cc.setNombre(c.getNombre());
             cc.setProducts(c.getProducts());
+            cc.setDescripcion(c.getDescripcion());
+            cc.setDisponible(c.getDisponible());
             categoryRepository.save(cc);
             return ResponseEntity.status(OK).build();
         }

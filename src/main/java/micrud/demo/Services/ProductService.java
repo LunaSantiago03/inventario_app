@@ -70,7 +70,7 @@ public class ProductService {
         List<Product> p = productRepository.findAll();
         List<Product> aux = new ArrayList<Product>();
         for(Product pa:p){
-            if(pa.getDisponible() == 1){
+            if(pa.getDisponible()){
                 aux.add(pa);
             }
         }
