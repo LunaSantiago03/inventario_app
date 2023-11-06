@@ -16,6 +16,6 @@ public class ProductDTO {
     private String nombre;
     private Integer cantidad;
     private Double precio;
-    private Byte disponible;
+    private Boolean disponible;
     private Valoracion valoracion;
 }
